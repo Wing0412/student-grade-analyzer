@@ -20,7 +20,29 @@ def assign_grade(average):
     else:
         return "F"
 
+def create_histogram(scores):
+    histogram = {}
+    for score in scores:
+        if score in histogram:
+            histogram[score] += 1
+        else:
+            histogram[score] = 1
+    return histogram
 
+
+def plot_histogram(histogram):
+    
+    #Create a bar chart (x = scores, y = frequency)
+    
+    x = list(histogram.keys())      # scores
+    y = list(histogram.values())    # frequency
+
+    plt.bar(x, y)
+    plt.xlabel("Scores")
+    plt.ylabel("Frequency")
+    plt.title("Score Distribution")
+
+    plt.show()  # This opens the graph window
 
 
 def main():
